@@ -1,0 +1,39 @@
+#+TITLE:     GoogleAPIの設定
+#+AUTHOR:    吉井 英人, 岡田卓也
+#+EMAIL:     yoshii@swlab.cs.okayama-u.ac.jp
+#+DATE:      2013-10-12
+#+SETUPFILE: options/default.org
+
+* GoogleAPIを利用するための手順
+** 初めてGoogleAPIを利用する場合
+  Google_Calendar_Analyzerは，GoogleAPIを利用しています．
+  そのため，スクリプトの実行前にGoogleAPIを利用するための準備が必要です．
+
+  1. [[https://code.google.com/apis/console/][GoogleAPIsConsole]] にアクセスし，Create Projectをクリックします．
+  2. Googleの提供しているAPIが一覧で表示されますので，Calender APIのStatusをONに変更してください．
+  3. GoogleAPIs，CalenderAPIのそれぞれについてAcceptをクリックしてください．
+  4. 左メニューのAPI Accessをクリックし，Create OAuth 2.0 client ID... をクリックしてください．
+  5. Project nameにGoogle_Calendar_Analyzerと入力してNextをクリックしてください．
+  6. ラジオボタンにて，Installed application，Otherを選択し，Create client IDをクリックしてください．
+  7. Client ID for installed applications以下にClient ID，Client secretが表示されます．
+
+** 以前にGoogleAPIを利用したことがある場合
+  1. [[https://code.google.com/apis/console/][GoogleAPIsConsole]] にアクセスし，左メニュー中のプルダウンメニューをクリックします．(名前は人によって違います)
+  2. Createをクリックします．
+  3. Google_Calendar_Analyzerと入力してCreate projectをクリックします．
+  4. Googleの提供しているAPIが一覧で表示されますので，Calender APIのStatusをONに変更してください．
+  5. GoogleAPIs，CalenderAPIのそれぞれについてAcceptをクリックしてください．
+  6. 左メニューのAPI Accessをクリックし，Create OAuth 2.0 client ID... をクリックしてください．
+  7. Project nameにGoogle_Calendar_Analyzerと入力してNextをクリックしてください．
+  8. ラジオボタンにて，Installed application，Otherを選択し，Create client IDをクリックしてください．
+  9. Client ID for installed applications以下にClient ID，Client secretが表示されます．
+
+** 共通の手順
+   表示されたClient ID，Client secretを利用して，以下のコマンドを実行します．
+
+#+BEGIN_SRC bash
+$ google-api oauth-2-login --scope=https://www.googleapis.com/auth/calendar --client-id=CLIENT_ID --client-secret=CLIENT_SECRET
+#+END_SRC
+   6. ブラウザがポップアップし，認証を求められるので，認証をクリックしてください．
+   7. ホームディレクトリに.google-api.yamlが生成されるので，このリポジトリをクローンしたディレクトリにコピーしてください．
+   以上で，GoogleAPIを利用する準備は完了です．

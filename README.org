@@ -1,0 +1,64 @@
+#+TITLE:     Google Calenadr Analyzer
+#+AUTHOR:    吉井 英人
+#+EMAIL:     yoshii@swlab.cs.okayama-u.ac.jp
+#+DATE:      2013-10-30
+#+SETUPFILE: options/default.org
+
+* 機能
+** イベントの作成日と実施日の分析
+イベントの作成日と実施日の差を調べて，それをグラフで出力する．
+[[file:./figs/sample.png]]
+
+* カレンダ情報の取得
+[[https://developers.google.com/google-apps/calendar/?hl=ja][Google Calendar API]] 
+本プログラムでは，Googleカレンダからの情報取得にGoogle Calendar APIを使用している．
+
+* 事前準備
+** gemのインストール
+以下のgemが必要である．
++ yaml
++ rubygems
++ google/api_client
+
+** settings.yaml
+settings.yamlに情報を取得するGoogleカレンダのidを入力する．
+
+** Google Calendar APIの設定
+[[file:setting_google_calendar_api.org][Google Calendar APIの設定]]を行い，.google-api.yamlファイルを作成する．
+
+* ディレクトリ構成
+
+#+BEGIN_SRC 
+ -- README.org
+|
+ -- setting_google_calendar_api.org
+|
+ -- Google_Calndar_Analyzer.sh
+|
+ -- Google_Calndar_Analyzer.rb
+|
+ -- Google_Calndar_Analyzer.R
+|
+ -- GCar.rb
+|
+ -- settings.yaml
+|
+ -- .google-api.yaml
+|
+ -- .gitignore
+|
+ -- data --- sample.txt
+|
+ -- pdf ---- sample.pdf
+|
+ -- figs --- sample.png
+#+END_SRC
+
+* 実行環境
+| OS   | Mac OS X 10.9 |
+| Ruby |         1.9.3 |
+| R    |         3.0.0 |
+* 実行方法
+#+BEGIN_SRC shell_script
+% sh ./Analysis_of_Google_Calndar.sh
+#+END_SRC
