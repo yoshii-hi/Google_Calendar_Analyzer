@@ -3,3 +3,5 @@ settings.yaml
 .RData
 .Rhistory
 .DS_Store
+data/data.txt
+pdf/data.txt.pdf
